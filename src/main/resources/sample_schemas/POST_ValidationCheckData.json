@@ -1,0 +1,52 @@
+[
+  {
+    "kontrola_ziadosti_vys_id": 55,
+    "kontrola_ziadosti_id": 11,
+    "typ_kontroly_ziadosti_id": 1,
+    "hodnota": "31",
+    "vysledok": true,
+    "typ_kontroly_ziadosti_label": "Dĺžka obdobia registrácie zamestnanca"
+  },
+  {
+    "kontrola_ziadosti_vys_id": 56,
+    "kontrola_ziadosti_id": 11,
+    "typ_kontroly_ziadosti_id": 2,
+    "hodnota": "61",
+    "vysledok": true,
+    "typ_kontroly_ziadosti_label": "Dĺžka obdobia registrácie zamestnávateľa/SZČO"
+  },
+  {
+    "kontrola_ziadosti_vys_id": 57,
+    "kontrola_ziadosti_id": 11,
+    "typ_kontroly_ziadosti_id": 3,
+    "hodnota": "2.2",
+    "vysledok": true,
+    "typ_kontroly_ziadosti_label": "Počet percent vyslaných zamestnancov (v %) vysielajúceho zamestnávateľa"
+  },
+  {
+    "kontrola_ziadosti_vys_id": 58,
+    "kontrola_ziadosti_id": 11,
+    "typ_kontroly_ziadosti_id": 4,
+    "hodnota": "13",
+    "vysledok": true,
+    "typ_kontroly_ziadosti_label": "Súčet období počtu dní za predchádzajúcich vyslaní"
+  },
+  {
+    "kontrola_ziadosti_vys_id": 59,
+    "kontrola_ziadosti_id": 11,
+    "typ_kontroly_ziadosti_id": 5,
+    "hodnota": "1",
+    "vysledok": true,
+    "typ_kontroly_ziadosti_label": "Saldokonto odvádzateľa"
+  },
+  {
+    "kontrola_ziadosti_vys_id": 60,
+    "kontrola_ziadosti_id": 11,
+    "typ_kontroly_ziadosti_id": 6,
+    "hodnota": null,
+    "vysledok": true,
+    "typ_kontroly_ziadosti_label": "Nahrádzanie vyslaných zamestnancov",
+    "zamestnavatelia": [
+    ]
+  }
+]

@@ -1,0 +1,141 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "array",
+  "additionalItems": false,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "kontrola_ziadosti_vys_id": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "kontrola_ziadosti_id": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "typ_kontroly_ziadosti_id": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "typ_kontroly_ziadosti_label": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "hodnota": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "vysledok": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "zamestnavatelia": {
+        "type": "array",
+        "additionalItems": false,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "identifikacne_cislo": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "nazov": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "stat_label": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "Adresa": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ulica": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "cislo": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "psc": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "obec": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "Poistenci": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "rodne_cislo": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "meno": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "priezvisko": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "datum_narodenia": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": false
+      }
+    }
+  }
+}

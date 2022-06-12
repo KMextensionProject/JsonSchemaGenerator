@@ -1,0 +1,140 @@
+[
+  {
+    "kontrola_ziadosti_id": 11,
+    "ziadost_id": 1003018,
+    "autor": "c753af114d064e57836d7a6b7f9370ea",
+    "celkovy_vysledok": true,
+    "autor_label": "supervisor2020",
+    "vysledky_kontrol": [
+      {
+        "kontrola_ziadosti_vys_id": 55,
+        "kontrola_ziadosti_id": 11,
+        "typ_kontroly_ziadosti_id": 1,
+        "hodnota": "31",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[31|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Dĺžka obdobia registrácie zamestnanca"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 56,
+        "kontrola_ziadosti_id": 11,
+        "typ_kontroly_ziadosti_id": 2,
+        "hodnota": "61",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[61|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Dĺžka obdobia registrácie zamestnávateľa/SZČO"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 57,
+        "kontrola_ziadosti_id": 11,
+        "typ_kontroly_ziadosti_id": 3,
+        "hodnota": "2.2",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[45|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Počet percent vyslaných zamestnancov (v %) vysielajúceho zamestnávateľa"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 58,
+        "kontrola_ziadosti_id": 11,
+        "typ_kontroly_ziadosti_id": 4,
+        "hodnota": "13",
+        "vysledok": true,
+        "vysledok_externeho_volania": null,
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Súčet období počtu dní za predchádzajúcich vyslaní"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 59,
+        "kontrola_ziadosti_id": 11,
+        "typ_kontroly_ziadosti_id": 5,
+        "hodnota": "1",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[1234567890|1|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Saldokonto odvádzateľa"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 60,
+        "kontrola_ziadosti_id": 11,
+        "typ_kontroly_ziadosti_id": 6,
+        "hodnota": null,
+        "vysledok": true,
+        "vysledok_externeho_volania": null,
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Nahrádzanie vyslaných zamestnancov"
+      }
+    ]
+  },
+  {
+    "kontrola_ziadosti_id": 12,
+    "ziadost_id": 1003018,
+    "autor": "c753af114d064e57836d7a6b7f9370ea",
+    "celkovy_vysledok": true,
+    "autor_label": "supervisor2020",
+    "vysledky_kontrol": [
+      {
+        "kontrola_ziadosti_vys_id": 61,
+        "kontrola_ziadosti_id": 12,
+        "typ_kontroly_ziadosti_id": 1,
+        "hodnota": "31",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[31|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Dĺžka obdobia registrácie zamestnanca"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 62,
+        "kontrola_ziadosti_id": 12,
+        "typ_kontroly_ziadosti_id": 2,
+        "hodnota": "61",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[61|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Dĺžka obdobia registrácie zamestnávateľa/SZČO"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 63,
+        "kontrola_ziadosti_id": 12,
+        "typ_kontroly_ziadosti_id": 3,
+        "hodnota": "2.2",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[45|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Počet percent vyslaných zamestnancov (v %) vysielajúceho zamestnávateľa"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 64,
+        "kontrola_ziadosti_id": 12,
+        "typ_kontroly_ziadosti_id": 4,
+        "hodnota": "13",
+        "vysledok": true,
+        "vysledok_externeho_volania": null,
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Súčet období počtu dní za predchádzajúcich vyslaní"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 65,
+        "kontrola_ziadosti_id": 12,
+        "typ_kontroly_ziadosti_id": 5,
+        "hodnota": "1",
+        "vysledok": true,
+        "vysledok_externeho_volania": "[1234567890|1|]",
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Saldokonto odvádzateľa"
+      },
+      {
+        "kontrola_ziadosti_vys_id": 66,
+        "kontrola_ziadosti_id": 12,
+        "typ_kontroly_ziadosti_id": 6,
+        "hodnota": null,
+        "vysledok": true,
+        "vysledok_externeho_volania": null,
+        "interny_vysledok": null,
+        "typ_kontroly_ziadosti_label": "Nahrádzanie vyslaných zamestnancov"
+      }
+    ]
+  }
+]

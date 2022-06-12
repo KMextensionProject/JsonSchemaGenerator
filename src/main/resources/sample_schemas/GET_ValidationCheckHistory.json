@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "array",
+  "additionalItems": false,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "kontrola_ziadosti_id": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "ziadost_id": {
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "autor": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "autor_label": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "celkovy_vysledok": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      },
+      "vysledky_kontrol": {
+        "type": "array",
+        "additionalItems": false,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kontrola_ziadosti_vys_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "kontrola_ziadosti_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "typ_kontroly_ziadosti_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "typ_kontroly_ziadosti_label": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "hodnota": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "vysledok": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "vysledok_externeho_volania": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "interny_vysledok": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
