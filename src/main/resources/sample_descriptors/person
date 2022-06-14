@@ -1,0 +1,5 @@
+empty_object \
+string first_name required \
+string last_name required \
+integer age required not_null \
+string sex
