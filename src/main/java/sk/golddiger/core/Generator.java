@@ -3,9 +3,18 @@ package sk.golddiger.core;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Set;
 
 public class Generator {
 	
+	private static final Set<String> SUPPORTED_DATA_TYPES = Set.of(
+			"integer",
+			"string",
+			"object",
+			"array",
+			"boolean",
+			"date");
+
 	public static void main(String[] args) {
 		/*
 	"ziadost_id": {
@@ -58,11 +67,20 @@ public class Generator {
 	private static String getJsonNamedTypeDesc(String type, String name, boolean required, boolean notNull, String lineEnding) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\"" + name + "\": {\n");
-		sb.append("\t" + "\"type\": [\n\t  \"" + type + "\"");
+		appendTab(1, sb);
+		sb.append("\"type\": [\n");
+		appendTab(1, sb);
+		sb.append("  \"" + type + "\"");
 		if (!notNull) {
-			sb.append(",\n\t  \"null\"\n\t]\n");
+			sb.append(",\n");
+			appendTab(1, sb);
+			sb.append("  \"null\"\n");
+			appendTab(1, sb);
+			sb.append("]\n");
 		} else {
-			sb.append("\n\t]\n");
+			sb.append("\n");
+			appendTab(1, sb);
+			sb.append("]\n");
 		}
 		if (lineEnding.contains("\\")) {
 			sb.append("},\n");
@@ -70,5 +88,21 @@ public class Generator {
 			sb.append("}\n");
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * pass zero for no level
+	 */
+	private static void appendTab(int level, StringBuilder schema) {
+		for (int i = 1; i <= level; i++) {
+			schema.append('\t');
+		}
+	}
+
+	private static void validateDataType(String type) {
+		if (!SUPPORTED_DATA_TYPES.contains(type)) {
+			throw new IllegalArgumentException("Illegal type declaration for data type " 
+					+ type + ". Expected one of " + SUPPORTED_DATA_TYPES);
+		}
 	}
 }
