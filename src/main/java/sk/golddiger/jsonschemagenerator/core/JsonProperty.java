@@ -1,6 +1,14 @@
 package sk.golddiger.jsonschemagenerator.core;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 public class JsonProperty {
+
+	private static int depth;
+
 	private String propertyName;
 	private String propertyType;
 	private boolean isNotNull;
@@ -8,14 +16,22 @@ public class JsonProperty {
 	private String format;
 	private Integer max;
 	private Integer min;
-	private JsonProperty jsonProperty;
+	private Set<JsonProperty> jsonProperties;
 
-	public JsonProperty getJsonProperty() {
-		return jsonProperty;
+	public List<JsonProperty> getJsonProperties() {
+		return new ArrayList<>(jsonProperties);
 	}
 
-	public void setJsonProperty(JsonProperty jsonProperty) {
-		this.jsonProperty = jsonProperty;
+	public void addJsonProperties(List<JsonProperty> jsonProperties) {
+		if (this.jsonProperties == null) {
+			this.jsonProperties = new LinkedHashSet<>(jsonProperties);
+		} else {
+			this.jsonProperties.addAll(jsonProperties);
+		}
+	}
+
+	public boolean addJsonProperty(JsonProperty jsonProperty) {
+		return jsonProperties.add(jsonProperty);
 	}
 
 	public String getPropertyType() {
@@ -74,9 +90,35 @@ public class JsonProperty {
 		this.min = min;
 	}
 
-	@Override
 	public String toString() {
-		return this.propertyName + ": [" + this.propertyType + ", " + this.isNotNull + ", " + this.isRequired + "]";
+		depth = 0;
+		return this.toString(depth);
 	}
 
+	private String toString(int level) {
+		StringBuilder sb = new StringBuilder();
+		appendTab(sb, level);
+		sb.append("type: " + this.propertyType + System.lineSeparator());
+		appendTab(sb, level);
+		sb.append("name: " + this.propertyName + System.lineSeparator());
+		appendTab(sb, level);
+		sb.append("nullable: " + !this.isNotNull + System.lineSeparator());
+		appendTab(sb, level);
+		sb.append("required: " + this.isNotNull + System.lineSeparator());
+		if (jsonProperties != null && !jsonProperties.isEmpty()) {
+			level += 1;
+			for (JsonProperty prop : jsonProperties) {
+				sb.append(prop.toString(level) + System.lineSeparator());
+			}
+		}
+		return sb.toString();
+	}
+
+	private void appendTab(StringBuilder string, int howMany) {
+		StringBuilder tabs = new StringBuilder();
+		for (int i = 0; i < howMany; i++) {
+			tabs.append('\t');
+		}
+		string.append(tabs);
+	}
 }

@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 public class Generator {
@@ -20,6 +21,23 @@ public class Generator {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
+		List<JsonProperty> properties = new ArrayList<>();
+		
+		JsonProperty name = new JsonProperty();
+		name.setNotNull(false);
+		name.setRequired(true);
+		name.setPropertyType(JsonType.STRING);
+		name.setPropertyName("first_name");
+		
+		properties.add(name);
+		
+		JsonProperty object = new JsonProperty();
+		object.setPropertyType(JsonType.OBJECT);
+		object.addJsonProperties(properties);
+		
+		// now I have Json object with properties []
+		System.out.println(object);
+		System.exit(9000);
 		
 		if(args.length == 0) {
 			throw new IllegalArgumentException("Program expects at least one argument");
