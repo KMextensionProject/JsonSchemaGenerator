@@ -10,7 +10,7 @@ import sk.golddiger.jsonschemagenerator.exceptions.InvalidJsonType;
 
 public class SchemaDescriptorLoader {
 
-	private static final int MAX_DESCRIPTOR_COMMAND_LENGTH = 2;
+	private static final int MIN_DESCRIPTOR_COMMAND_LENGTH = 2;
 
 	public static List<JsonProperty> parseDescriptor(String fileLocation) throws IOException {
 		List<JsonProperty> properties = new ArrayList<>();
@@ -29,8 +29,8 @@ public class SchemaDescriptorLoader {
 	}
 
 	private static void validateDescriptorCommandLength(int size) {
-		if (size < MAX_DESCRIPTOR_COMMAND_LENGTH) {
-			throw new IllegalArgumentException("At least 2 elements: data type and name are required bro");
+		if (size < MIN_DESCRIPTOR_COMMAND_LENGTH) {
+			throw new IllegalArgumentException("At least 2 elements: data type and name are required");
 		}
 	}
 
