@@ -1,10 +1,13 @@
-package sk.golddiger.core;
+package sk.golddiger.jsonschemagenerator.core;
+
+import static sk.golddiger.jsonschemagenerator.core.SchemaDescriptorLoader.parseDescriptor;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
-
 public class Generator {
 	
 	private static final Set<String> SUPPORTED_DATA_TYPES = Set.of(
@@ -15,7 +18,21 @@ public class Generator {
 			"boolean",
 			"date");
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		
+		
+		if(args.length == 0) {
+			throw new IllegalArgumentException("Program expects at least one argument");
+		}
+		
+		String fileLocation = args[0];
+		List<JsonProperty> list = parseDescriptor(fileLocation);
+		for(JsonProperty jp: list) {
+			System.out.println(jp);
+		}
+		
+		
+		
 		/*
 	"ziadost_id": {
         "type": [
@@ -25,6 +42,7 @@ public class Generator {
       },
 		 */
 		
+		System.exit(0);
 		// TODO: construct this better...line words one by one
 		StringBuilder sb = new StringBuilder();
 		try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/sample_descriptors/person"))) {
@@ -62,7 +80,7 @@ public class Generator {
 	}
 
 	// TODO: create jsonNamedArrayType
-	
+
 	// TODO: take level of tabs
 	private static String getJsonNamedTypeDesc(String type, String name, boolean required, boolean notNull, String lineEnding) {
 		StringBuilder sb = new StringBuilder();
@@ -90,6 +108,10 @@ public class Generator {
 		return sb.toString();
 	}
 
+	private static void appendProperty(JsonProperty property) {
+		
+	}
+
 	/**
 	 * pass zero for no level
 	 */
@@ -106,3 +128,4 @@ public class Generator {
 		}
 	}
 }
+
