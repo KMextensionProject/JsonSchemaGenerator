@@ -77,6 +77,18 @@ public class SchemaDescriptorLoader {
 		case "not_null":
 			jsonProperty.setNotNull(true);
 			break;
+		default:
+			if (element.contains("max")) {
+				jsonProperty.setMax(parseMinMaxConstraint(element));
+			} else if (element.contains("min")) {
+				jsonProperty.setMin(parseMinMaxConstraint(element));
+			}
 		}
+	}
+
+	private static Integer parseMinMaxConstraint(String descriptorElement) {
+		String value = descriptorElement.substring(
+				descriptorElement.indexOf('(') + 1, descriptorElement.lastIndexOf(')'));
+		return Integer.valueOf(value);
 	}
 }

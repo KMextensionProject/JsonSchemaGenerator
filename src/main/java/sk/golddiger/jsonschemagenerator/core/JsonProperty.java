@@ -105,6 +105,15 @@ public class JsonProperty {
 		sb.append("nullable: " + !this.isNotNull + System.lineSeparator());
 		appendTab(sb, level);
 		sb.append("required: " + this.isNotNull + System.lineSeparator());
+		if (this.max != null) {
+			appendTab(sb, level);
+			sb.append("maxValue/Length: " + this.max + System.lineSeparator());
+		}
+		if (this.min != null) {
+			appendTab(sb, level);
+
+			sb.append("minValue/Length: " + this.min + System.lineSeparator());
+		}
 		if (jsonProperties != null && !jsonProperties.isEmpty()) {
 			level += 1;
 			for (JsonProperty prop : jsonProperties) {
