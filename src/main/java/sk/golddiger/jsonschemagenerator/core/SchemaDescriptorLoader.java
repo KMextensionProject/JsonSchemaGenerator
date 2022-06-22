@@ -1,32 +1,44 @@
 package sk.golddiger.jsonschemagenerator.core;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import sk.golddiger.jsonschemagenerator.exceptions.InvalidJsonType;
 
+// DONE: parsing one line from property descriptor
+// TODO: if the object has just been parsed, start appending its properties
+// TODO: add another descriptor syntax to define start and end of complex property
+// TODO: make possibility of default values?
+// TODO: make CammelCase names from descriptor names? do it as argument option to main method
 public class SchemaDescriptorLoader {
 
 	private static final int MIN_DESCRIPTOR_COMMAND_LENGTH = 2;
 
-	public static List<JsonProperty> parseDescriptor(String fileLocation) throws IOException {
-		List<JsonProperty> properties = new ArrayList<>();
-		try (BufferedReader br = new BufferedReader(new FileReader(fileLocation))) {
-			
-			String mediator;
-			while ((mediator = br.readLine()) != null) {
-				String[] propertyDef = mediator.split(" ");
-				validateDescriptorCommandLength(propertyDef.length);
-				
-				JsonProperty jsonProperty = parseJsonProperty(propertyDef);
-				properties.add(jsonProperty);
-			}
-		}
-		return properties;
+	// for testing purpose just inserting lines to parse
+	public static JsonProperty parse(List<String> lines) {
+		// make a list of json objects or arrays...
+		// then make a list of list of properties...
+		// and at last merge them
+		// but careful with depth...make a map f.e. and store depths for even top list and the list of list
+		// then you can safely merge them
+		
+
+		return null;
 	}
+
+	// do not use this
+//	public static List<JsonProperty> parseDescriptor(String fileLocation) throws IOException {
+//		List<JsonProperty> properties = new ArrayList<>();		
+//		boolean possibleRoot = true;
+//		try (BufferedReader br = new BufferedReader(new FileReader(fileLocation))) {
+//			String mediator;
+//			while ((mediator = br.readLine()) != null) {
+////				JsonProperty jsonProperty = parseJsonProperty(mediator, possibleRoot);
+////				properties.add(jsonProperty);
+//			}
+//		}
+//		return properties;
+//	}
 
 	private static void validateDescriptorCommandLength(int size) {
 		if (size < MIN_DESCRIPTOR_COMMAND_LENGTH) {
@@ -34,14 +46,26 @@ public class SchemaDescriptorLoader {
 		}
 	}
 
-	private static JsonProperty parseJsonProperty(String[] propertyDef) {
+	private static JsonProperty parseJsonProperty(String descriptorLine) {
+		String[] propertyDef = descriptorLine.split(" ");
+		validateDescriptorCommandLength(propertyDef.length);
+
 		JsonProperty jsonProperty = new JsonProperty();
+
 		for (int i = 0; i < propertyDef.length; i++) {
 			String element = propertyDef[i];
 			switch (i) {
 			case 0:
 				validateJsonType(element);
 				jsonProperty.setPropertyType(element);
+
+				// check above plan and probably change this
+				if (JsonType.OBJECT.equals(jsonProperty.getPropertyType())
+				 || JsonType.ARRAY.equals(jsonProperty.getPropertyType())) {
+					jsonProperty.addJsonProperties(new ArrayList<>());
+					return jsonProperty;
+				}
+
 				break;
 			case 1:
 				jsonProperty.setPropertyName(element);

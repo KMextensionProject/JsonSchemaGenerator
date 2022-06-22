@@ -1,4 +1,19 @@
-string first_name required
-string kyukiuk
-integer age required not_null min(5) max(8)
-string sex max(10)
+object {
+	array employees {
+		object person {
+			string first_name required not_null max(25)
+			string middle_name
+			string last_name required not_null max(25)
+			string nick_name not_null max(10)
+			integer age required not_null
+			boolean married not_null
+			object address required {
+				string country
+				string city
+				string postal_code
+				string street
+				integer street_number
+			}
+		}
+	}
+}
